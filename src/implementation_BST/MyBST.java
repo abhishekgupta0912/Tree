@@ -70,6 +70,7 @@ public class MyBST {
                 } else root = root.getRight();
             } else { // node has both the child. We can  either use inorder successor or inorder predecessor
                 // this is by successor
+                response = temp;
                 Node successor = getSuccessor(temp);
                 successor.setLeft(temp.getLeft());
                 successor.setRight(temp.getRight());
