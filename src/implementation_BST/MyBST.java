@@ -72,6 +72,11 @@ public class MyBST {
                     parent.setRight(successor);
             }
         }
+
+    }
+
+    public Node getRoot() {
+        return root;
     }
 
     public Node getSuccessor(Node node) {
