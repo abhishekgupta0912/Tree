@@ -48,29 +48,37 @@ public class MyBST {
         }
         if (temp != null) {
             if (temp.getLeft() == null && temp.getRight() == null) { //if it is a leaf node or node with no child
-                if (parent.getData() > data)
-                    parent.setLeft(null);
-                else
-                    parent.setRight(null);
+                if (parent != null) {
+                    if (parent.getData() > data)
+                        parent.setLeft(null);
+                    else
+                        parent.setRight(null);
+                }
             } else if (temp.getLeft() != null && temp.getRight() == null) {  // if node has 1 child on left
-                if (parent.getData() > data)
-                    parent.setLeft(temp.getLeft());
-                else
-                    parent.setRight(temp.getRight());
+                if (parent != null) {
+                    if (parent.getData() > data)
+                        parent.setLeft(null);
+                    else
+                        parent.setRight(null);
+                }
             } else if (temp.getRight() != null && temp.getLeft() == null) { // if the node has 1 child on right
-                if (temp.getData() < data)
-                    parent.setRight(temp.getRight());
-                else
-                    parent.setLeft(temp.getLeft());
+                if (parent != null) {
+                    if (temp.getData() < data)
+                        parent.setRight(temp.getRight());
+                    else
+                        parent.setLeft(temp.getLeft());
+                }
             } else { // node has both the child. We can  either use inorder successor or inorder predecessor
                 // this is by successor
                 Node successor = getSuccessor(temp);
                 successor.setLeft(temp.getLeft());
                 successor.setRight(temp.getRight());
-                if (parent.getData() > data)
-                    parent.setLeft(successor);
-                else
-                    parent.setRight(successor);
+                if (parent != null) {
+                    if (parent.getData() > data)
+                        parent.setLeft(successor);
+                    else
+                        parent.setRight(successor);
+                }
             }
         }
 
