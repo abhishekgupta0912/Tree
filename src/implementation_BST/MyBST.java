@@ -93,9 +93,9 @@ public class MyBST {
         node = node.getRight();
         while (node != null) {
             successor = node;
-            node = node.getRight();
+            node = node.getLeft();
         }
-        delete(successor.getData());
+        successor = delete(successor.getData());
         return successor;
     }
 
