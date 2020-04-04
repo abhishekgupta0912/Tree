@@ -32,11 +32,10 @@ public class MyBST {
         }
     }
 
-    public void delete(int data) {
-        if (root == null)
-            System.out.println("Tree Is Empty");
+    public Node delete(int data) {
         Node temp = root;
         Node parent = null;
+        Node response = null;
 
         //search for the node to be deleted
         while (temp != null && temp.getData() != data) {
@@ -47,27 +46,28 @@ public class MyBST {
                 temp = temp.getRight();
         }
         if (temp != null) {
+            response = temp;
             if (temp.getLeft() == null && temp.getRight() == null) { //if it is a leaf node or node with no child
                 if (parent != null) {
                     if (parent.getData() > data)
                         parent.setLeft(null);
                     else
                         parent.setRight(null);
-                }
+                } else root = null;
             } else if (temp.getLeft() != null && temp.getRight() == null) {  // if node has 1 child on left
                 if (parent != null) {
                     if (parent.getData() > data)
                         parent.setLeft(null);
                     else
                         parent.setRight(null);
-                }
+                } else root = root.getLeft();
             } else if (temp.getRight() != null && temp.getLeft() == null) { // if the node has 1 child on right
                 if (parent != null) {
                     if (temp.getData() < data)
                         parent.setRight(temp.getRight());
                     else
                         parent.setLeft(temp.getLeft());
-                }
+                } else root = root.getRight();
             } else { // node has both the child. We can  either use inorder successor or inorder predecessor
                 // this is by successor
                 Node successor = getSuccessor(temp);
@@ -78,14 +78,14 @@ public class MyBST {
                         parent.setLeft(successor);
                     else
                         parent.setRight(successor);
-                }
+                } else root = successor;
             }
         }
-
+        return response;
     }
 
     public Node getRoot() {
-        return root;
+        return this.root;
     }
 
     public Node getSuccessor(Node node) {

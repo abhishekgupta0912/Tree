@@ -27,6 +27,9 @@ public class Main {
         System.out.println();
         t.preordeerloop(btree.getRoot());
 
+
+        System.out.println(btree.delete(7));
+
      /*   System.out.println("\nInOrder -->");
         t.inorder(btree.getRoot());
         System.out.println();
