@@ -14,21 +14,22 @@ public class MyBST {
 
         if (root == null) {
             root = newNode;
-        }
-        Node parent = null;
-        Node temp = root;
-        while (temp != null) {
-            parent = temp;
-            if (temp.getData() <= newNode.getData())
-                temp = temp.getLeft();
-            else
-                temp = temp.getRight();
+        } else {
+            Node parent = null;
+            Node temp = root;
+            while (temp != null) {
+                parent = temp;
+                if (temp.getData() <= newNode.getData())
+                    temp = temp.getLeft();
+                else
+                    temp = temp.getRight();
 
+            }
+            if (newNode.getData() <= parent.getData())
+                parent.setLeft(newNode);
+            else
+                parent.setRight(newNode);
         }
-        if (newNode.getData() <= parent.getData())
-            parent.setLeft(newNode);
-        else
-            parent.setRight(newNode);
     }
 
     public void delete(int data) {

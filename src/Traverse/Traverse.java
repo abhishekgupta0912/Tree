@@ -1,15 +1,12 @@
 package Traverse;
 
 import Node.Node;
-import implementation_BST.MyBST;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
 public class Traverse {
-    MyBST b = new MyBST();
-    Node root = b.getRoot();
 
     // THE THREE METHODS USE RECURSION
 
@@ -97,5 +94,6 @@ public class Traverse {
         }
     }
 
+    //
 
 }
