@@ -19,7 +19,7 @@ public class MyBST {
             Node temp = root;
             while (temp != null) {
                 parent = temp;
-                if (temp.getData() <= newNode.getData())
+                if (temp.getData() >= newNode.getData())
                     temp = temp.getLeft();
                 else
                     temp = temp.getRight();
@@ -40,7 +40,7 @@ public class MyBST {
         //search for the node to be deleted
         while (temp != null && temp.getData() != data) {
             parent = temp;
-            if (temp.getData() <= data)
+            if (temp.getData() >= data)
                 temp = temp.getLeft();
             else
                 temp = temp.getRight();
@@ -60,20 +60,20 @@ public class MyBST {
             } else if (temp.getLeft() != null && temp.getRight() == null) {  // if node has 1 child on left
                 if (parent != null) {
                     if (parent.getData() > data)
-                        parent.setLeft(null);
+                        parent.setLeft(temp.getLeft());
                     else
-                        parent.setRight(null);
+                        parent.setRight(temp.getLeft());
                 } else root = root.getLeft();
             } else if (temp.getRight() != null && temp.getLeft() == null) { // if the node has 1 child on right
                 if (parent != null) {
-                    if (temp.getData() < data)
+                    if (parent.getData() < data)
                         parent.setRight(temp.getRight());
                     else
-                        parent.setLeft(temp.getLeft());
+                        parent.setLeft(temp.getRight());
                 } else root = root.getRight();
             } else { // node has both the child. We can  either use inorder successor or inorder predecessor
                 // this is by successor
-                response = temp;
+
                 Node successor = getSuccessor(temp);
                 successor.setLeft(temp.getLeft());
                 successor.setRight(temp.getRight());
@@ -82,7 +82,10 @@ public class MyBST {
                         parent.setLeft(successor);
                     else
                         parent.setRight(successor);
-                } else root = successor;
+                } else {
+                    successor.setLeft(root.getLeft());
+                    root = successor;
+                }
             }
         }
         return response;

@@ -19,23 +19,28 @@ public class Main {
         btree.insert(13);
         btree.insert(16);
 
-       /* System.out.println("PostOrder --> ");
-        t.postorder(btree.getRoot());*/
 
-        System.out.println("\nPreOrder -->");
+        System.out.println("PostOrder --> ");
+        t.postorder(btree.getRoot());
+
+        System.out.println("\n\nPreOrder -->");
         t.preorder(btree.getRoot());
         System.out.println();
         t.preordeerloop(btree.getRoot());
+        System.out.println();
 
 
-        System.out.println(btree.delete(2));
-
-     /*   System.out.println("\nInOrder -->");
+        System.out.println("\n\nInOrder -->");
         t.inorder(btree.getRoot());
-        System.out.println();.
+        System.out.println();
         t.inorderloop(btree.getRoot());
 
-        System.out.println("\nLevelOrder --> ");
-        t.levelorder(btree.getRoot());*/
+        System.out.println("\n\nLevelOrder --> ");
+        t.levelorder(btree.getRoot());
+
+        System.out.println("\n");
+        System.out.println("Deleting the node with value --> 10 ");
+        btree.delete(10);
+        t.preordeerloop(btree.getRoot());
     }
 }
