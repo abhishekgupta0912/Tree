@@ -28,11 +28,11 @@ public class Main {
         t.preordeerloop(btree.getRoot());
 
 
-        System.out.println(btree.delete(7));
+        System.out.println(btree.delete(2));
 
      /*   System.out.println("\nInOrder -->");
         t.inorder(btree.getRoot());
-        System.out.println();
+        System.out.println();.
         t.inorderloop(btree.getRoot());
 
         System.out.println("\nLevelOrder --> ");

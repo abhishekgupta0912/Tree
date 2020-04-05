@@ -45,8 +45,11 @@ public class MyBST {
             else
                 temp = temp.getRight();
         }
+
+
         if (temp != null) {
             response = temp;
+
             if (temp.getLeft() == null && temp.getRight() == null) { //if it is a leaf node or node with no child
                 if (parent != null) {
                     if (parent.getData() > data)
